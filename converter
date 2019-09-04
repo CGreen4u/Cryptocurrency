@@ -1,0 +1,58 @@
+from forex_python.bitcoin import BtcConverter
+from datetime import datetime
+b = BtcConverter()
+# datetime(year, month, date, hour, minute, second, microsecond)
+d = datetime(2014, 5, 23, 12, 45, 42)
+x = b.get_previous_price('USD', d)
+print(x)
+
+
+from forex_python.converter import CurrencyRates
+c = CurrencyRates()
+d = datetime(2014, 5, 23, 12, 45, 42)
+f = c.get_rates('USD', d)
+print(f)
+
+
+#Using Coindesk API
+import requests
+response = requests.get('https://api.coindesk.com/v1/bpi/historical/close.json?start=2013-09-01&end=2013-09-05')
+data = response.json()
+print(data)
+url = 'https://api.coindesk.com/v1/bpi/historical/close.json?start=2013-09-01&end=2013-09-05'
+
+
+
+
+'''
+
+rom forex_python.bitcoin import BtcConverter
+from datetime import datetime
+import requests
+import time
+class convert_currency:
+
+	def _init_(self, amount=str, date=str):
+
+		self.amount = amount
+		self.date = date
+
+	def date_to_epoch(self, date):
+		pattern = '%d/%m/%Y %H:%M:%S'
+		epoch = int(time.mktime(time.strptime(date, pattern)))
+		print(epoch)
+
+
+	def converter(self, amount, date):
+		try:
+			b = BtcConverter()
+			# datetime(year, month, date, hour, minute, second, microsecond)
+			d = datetime(2014, 5, 23, 12, 45, 42)
+			x = b.get_previous_price('USD', d)
+			print(x)
+		except:
+			response = requests.get('https://api.coindesk.com/v1/bpi/historical/close.json?start=2013-09-01&end=2013-09-05')
+			data = response.json()
+			print(data)
+			url = 'https://api.coindesk.com/v1/bpi/historical/close.json?start=2013-09-01&end=2013-09-05'
+'''

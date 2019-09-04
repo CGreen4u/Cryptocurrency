@@ -1,0 +1,42 @@
+import requests
+'''
+print('Blockchain----nnnnnnn')
+tx_hash = 'b6f6991d03df0e2e04dafffcd6bc418aac66049e2cd74b80f14ac86db1e3f0da'
+response = requests.get('https://blockchain.info/rawtx/' + tx_hash)
+data = response.json()
+print(data)
+
+
+print("Menero-----oooo")
+
+monero_hash = '247575ca01657e2f61845dc2b6a64424c7e45952355757b950220b8def3fe5a1'
+#response = requests.get('https://moneroblocks.info/api/get_block_header/' + monero_hash)
+response = requests.get('https://moneroblocks.info/api/get_transaction_data/' + monero_hash)
+data = response.json()
+print(data)
+
+
+'''
+class hash:
+	def _init_(self, _hash=str):
+		self.hash = _hash
+
+	def hashing_id(self, _hash):
+		'this function is designed to run a hash id through blockchain or monero'
+		try:
+			tx_hash = _hash
+			#tx_hash = 'b6f6991d03df0e2e04dafffcd6bc418aac66049e2cd74b80f14ac86db1e3f0da'
+			response = requests.get('https://blockchain.info/rawtx/' + tx_hash)
+			data = response.json()
+			print(data)
+		except:
+			monero_hash = _hash
+			#monero_hash = '247575ca01657e2f61845dc2b6a64424c7e45952355757b950220b8def3fe5a0'
+			#response = requests.get('https://moneroblocks.info/api/get_block_header/' + monero_hash)
+			response = requests.get('https://moneroblocks.info/api/get_transaction_data/' + monero_hash)
+			data = response.json()
+			print(data)
+
+h = hash()
+h.hashing_id('b6f6991d03df0e2e04dafffcd6bc418aac66049e2cd74b80f14ac86db1e3f0da')
+
